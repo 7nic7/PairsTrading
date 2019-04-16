@@ -1,2 +1,2 @@
 # PairsTrading
-Paris Trading
+Pairs Trading
