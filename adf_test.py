@@ -12,6 +12,8 @@ plt.ion()
 fig, ax = plt.subplots(1, 1)
 p_value_l, len_l, names_l, stat_l, confit_l = [], [], [], [], []
 file_lists = os.listdir(os.path.join(dir_path, 'data/S&P500'))       # For example: '0_MMM.csv'
+# Sort the files by download time
+file_lists.sort(key=lambda fn: os.path.getmtime(dir_path+'data/S&P500/'+fn))
 for index, file in enumerate(file_lists):
     # Get one file's close price
     close = get_one_file_output(file)
