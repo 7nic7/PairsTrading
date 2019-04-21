@@ -1,4 +1,4 @@
-from PairsTrading.datasets import get_one_file_output
+from PairsTrading.datasets import get_one_file_close
 
 from statsmodels.tsa.stattools import adfuller
 import os
@@ -16,7 +16,7 @@ file_lists = os.listdir(os.path.join(dir_path, 'data/S&P500'))       # For examp
 file_lists.sort(key=lambda fn: os.path.getmtime(dir_path+'data/S&P500/'+fn))
 for index, file in enumerate(file_lists):
     # Get one file's close price
-    close = get_one_file_output(file)
+    close = get_one_file_close(file)
     name = file[(file.find('_')+1):-4]
     length = close.shape[0]
     names_l.append(name)
